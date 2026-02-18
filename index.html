@@ -1,27 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Heart 💖</title>
+<title>For You 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{background:#ffeef4;display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;}
-.card{background:white;padding:30px;border-radius:25px;text-align:center;}
-input{padding:10px;border-radius:10px;border:2px solid pink;text-align:center;}
-button{background:#ff5c8a;color:white;border:none;padding:10px 20px;border-radius:10px;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffb6d5,#ffe1f0);
+  font-family:'Poppins', sans-serif;
+}
+
+.card{
+  background:white;
+  padding:35px 25px;
+  border-radius:35px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(255,122,162,.5);
+  animation:float 2s infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+h1{
+  color:#ff5fa2;
+  margin-bottom:10px;
+}
+
+p{
+  color:#ff7aa2;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border-radius:25px;
+  border:2px solid #ffc1dc;
+  outline:none;
+  font-size:18px;
+  margin:18px 0;
+  text-align:center;
+  letter-spacing:3px;
+}
+
+button{
+  background:linear-gradient(135deg,#ff85b3,#ff5fa2);
+  border:none;
+  padding:14px 35px;
+  border-radius:30px;
+  color:white;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(255,95,162,.5);
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+.heart{
+  font-size:45px;
+  animation:beat 1s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-<h2>Enter your birthday 💕</h2>
-<input id="pin" maxlength="4" placeholder="DDMM">
-<br><br>
-<button onclick="go()">Unlock 💖</button>
+  <div class="heart">💞</div>
+  <h1>Hello My Love</h1>
+  <p>kode rahasia masuk 💗<br>
+  (tanggal + bulan kamu)</p>
+
+  <input type="password" id="pw" placeholder="contoh: 1902">
+
+  <button onclick="cek()">Open 💕</button>
 </div>
+
 <script>
-const real="1902"; // GANTI
-function go(){
-if(pin.value===real){location.href="gallery.html";}
-else{alert("salah 😜");}
+function cek(){
+  let pw = document.getElementById("pw").value;
+
+  if(pw === "1902"){   // ganti sesuai tanggal+bulan dia
+    window.location.href="gallery.html";
+  }else{
+    alert("ihhh itu bukan tanggal kamu 😝");
+  }
 }
 </script>
+
 </body>
 </html>
