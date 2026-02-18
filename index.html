@@ -7,24 +7,68 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
+/* penting supaya ukuran presisi */
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   background:linear-gradient(135deg,#ffb6d5,#ffe1f0);
   font-family:'Poppins', sans-serif;
+  overflow:hidden;
 }
 
+/* background hearts */
+.hearts{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+.hearts span{
+  position:absolute;
+  font-size:14px;
+  color:rgba(255,95,162,.35);
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-10vh);
+    opacity:0;
+  }
+  10%{
+    opacity:.6;
+  }
+  100%{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
+/* card */
 .card{
+  position:relative;
+  z-index:2;
   background:white;
-  padding:35px 25px;
+  padding:40px 30px;
   border-radius:35px;
-  width:320px;
+  width:340px;
   text-align:center;
-  box-shadow:0 20px 50px rgba(255,122,162,.5);
-  animation:float 2s infinite;
+  box-shadow:0 20px 50px rgba(255,122,162,.4);
+  animation:float 3s ease-in-out infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 @keyframes float{
@@ -34,36 +78,46 @@ body{
 
 h1{
   color:#ff5fa2;
-  margin-bottom:10px;
+  margin:10px 0 5px;
 }
 
 p{
   color:#ff7aa2;
   font-size:14px;
+  margin:0 0 10px;
 }
 
 input{
-  width:100%;
-  padding:14px;
+  width:90%;
+  padding:14px 18px;
   border-radius:25px;
   border:2px solid #ffc1dc;
   outline:none;
-  font-size:18px;
-  margin:18px 0;
+  font-size:16px;
+  margin:22px 0;
   text-align:center;
-  letter-spacing:3px;
+  letter-spacing:2px;
+  background:#fff7fb;
+  transition:.25s ease;
+}
+
+input:focus{
+  border-color:#ff5fa2;
+  box-shadow:0 0 0 4px rgba(255,95,162,.15);
+  transform:scale(1.02);
 }
 
 button{
+  width:60%;
   background:linear-gradient(135deg,#ff85b3,#ff5fa2);
   border:none;
-  padding:14px 35px;
+  padding:14px 0;
   border-radius:30px;
   color:white;
   font-weight:700;
   font-size:16px;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(255,95,162,.5);
+  box-shadow:0 10px 25px rgba(255,95,162,.4);
   transition:.3s;
 }
 
@@ -72,24 +126,25 @@ button:hover{
 }
 
 .heart{
-  font-size:45px;
-  animation:beat 1s infinite;
+  font-size:40px;
+  animation:beat 1.2s infinite;
 }
 
 @keyframes beat{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.25)}
+  50%{transform:scale(1.15)}
 }
 </style>
 </head>
 
 <body>
 
+<div class="hearts"></div>
+
 <div class="card">
   <div class="heart">💞</div>
   <h1>Hello My Love</h1>
-  <p>kode rahasia masuk 💗<br>
-  (tanggal + bulan kamu)</p>
+  <p>kode rahasia masuk 💗<br>(tanggal + bulan kamu)</p>
 
   <input type="password" id="pw" placeholder="contoh: 1902">
 
@@ -97,14 +152,30 @@ button:hover{
 </div>
 
 <script>
+/* password check */
 function cek(){
   let pw = document.getElementById("pw").value;
 
-  if(pw === "1902"){   // ganti sesuai tanggal+bulan dia
+  if(pw === "1902"){   // ganti sesuai tanggal
     window.location.href="gallery.html";
   }else{
     alert("ihhh itu bukan tanggal kamu 😝");
   }
+}
+
+/* generate hearts (halus, sedikit aja) */
+const container = document.querySelector('.hearts');
+
+for(let i=0;i<12;i++){
+  let heart = document.createElement('span');
+  heart.innerHTML = "💗";
+
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.animationDuration = (6 + Math.random()*6) + "s";
+  heart.style.fontSize = (12 + Math.random()*6) + "px";
+  heart.style.animationDelay = Math.random()*5 + "s";
+
+  container.appendChild(heart);
 }
 </script>
 
