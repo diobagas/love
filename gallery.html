@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Love <3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  background:#fff7f2;
+  font-family:sans-serif;
+}
+
+h1{
+  text-align:center;
+  padding:20px;
+  color:#ff7aa2;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+.card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+
+.card p{
+  text-align:center;
+  padding:10px;
+  color:#ff7aa2;
+  font-weight:bold;
+}
+
+/* MODAL */
+#modal{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+}
+
+#modalBox{
+  background:white;
+  padding:15px;
+  border-radius:25px;
+  max-width:90%;
+  text-align:center;
+}
+
+#modalImg{
+  width:100%;
+  max-height:70vh;
+  border-radius:20px;
+}
+
+#modalText{
+  margin:10px 0;
+  color:#ff7aa2;
+  font-weight:bold;
+}
+
+.closeBtn{
+  background:#ff7aa2;
+  color:white;
+  border:none;
+  padding:8px 25px;
+  border-radius:20px;
+}
+
+/* NEXT BUTTON */
+.next-btn{
+  display:block;
+  margin:40px auto 60px;
+  padding:14px 36px;
+  background:#ff7aa2;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:18px;
+  width:fit-content;
+  box-shadow:0 10px 25px rgba(255,122,162,.4);
+  transition:.3s;
+}
+
+.next-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(255,122,162,.6);
+}
+</style>
+</head>
+<body>
+
+<h1>Tataa my heart <3</h1>
+
+<div class="grid">
+  <div class="card" onclick="openModal('img/1.jpg','first moment aku ketemu sama pacar aku yang cantik ini')">
+    <img src="img/1.jpg">
+    <p>first date 💕</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/2.jpg','proud of you bisa ngelewatin masa ini sayangku')">
+    <img src="img/2.jpg">
+    <p>semproo</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/3.jpg','lucuu banget banget kitaaa >.<')">
+    <img src="img/3.jpg">
+    <p>mirror date</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/4.jpg','suka banget sama foto ini kamu keliatan teramat gemasss')">
+    <img src="img/4.jpg">
+    <p>cute pose</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/5.jpg','aku bakal selalu inget yang kamu ucapin kamu seneng banget kalo aku senyum hihi')">
+    <img src="img/5.jpg">
+    <p>silly us</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/6.jpg','omg our first photobooth date besok kita bikin lagi yaa cintakuuu')">
+    <img src="img/6.jpg">
+    <p>photo booth</p>
+  </div>
+
+  <div class="card" onclick="openModal('img/7.jpg','its always you and you!')">
+    <img src="img/7.jpg">
+    <p>still my girl 💖</p>
+  </div>
+</div>
+
+<a href="letter.html" class="next-btn">Next! 💖</a>
+
+<!-- MODAL -->
+<div id="modal">
+  <div id="modalBox">
+    <img id="modalImg">
+    <p id="modalText"></p>
+    <button class="closeBtn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+function openModal(img,text){
+  modal.style.display="flex";
+  modalImg.src=img;
+  modalText.innerText=text;
+}
+function closeModal(){
+  modal.style.display="none";
+}
+</script>
+
+</body>
+</html>
