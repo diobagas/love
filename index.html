@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Heart 💖</title>
+<style>
+body{background:#ffeef4;display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;}
+.card{background:white;padding:30px;border-radius:25px;text-align:center;}
+input{padding:10px;border-radius:10px;border:2px solid pink;text-align:center;}
+button{background:#ff5c8a;color:white;border:none;padding:10px 20px;border-radius:10px;}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Enter your birthday 💕</h2>
+<input id="pin" maxlength="4" placeholder="DDMM">
+<br><br>
+<button onclick="go()">Unlock 💖</button>
+</div>
+<script>
+const real="1902"; // GANTI
+function go(){
+if(pin.value===real){location.href="gallery.html";}
+else{alert("salah 😜");}
+}
+</script>
+</body>
+</html>
